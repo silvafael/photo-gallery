@@ -1,17 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 1
+      <span>emplooye registration</span>
+      <div id="btn">
+        <ion-button color="light" fill="clear" size="small" (click)="getFuncionarios()">
+          <ion-icon slot="icon-only" name="arrow-down-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="light" fill="clear" size="small" (click)="toggleForm()">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content color="primary"> 
+  <div id="container">
+    <form *ngIf="showForm" (ngSubmit)="putInFuncAdd()">
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input name="Nome" [(ngModel)]="newFunc.nome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sobrenome</ion-label>
+        <ion-input name="Sobrenome" [(ngModel)]="newFunc.sobrenome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cargo</ion-label>
+        <ion-input name="cargo" [(ngModel)]="newFunc.cargo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data de Nascimento</ion-label>
+        <ion-input name="dataNasc" [(ngModel)]="newFunc.dataNasc" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Endereço</ion-label>
+        <ion-input name="endereco" [(ngModel)]="newFunc.endereco" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cidade</ion-label>
+        <ion-input name="cidade" [(ngModel)]="newFunc.cidade" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>CEP</ion-label>
+        <ion-input name="cep" [(ngModel)]="newFunc.cep" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>País</ion-label>
+        <ion-input name="pais" [(ngModel)]="newFunc.pais" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Telefone</ion-label>
+        <ion-input name="fone" [(ngModel)]="newFunc.fone" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Salário</ion-label>
+        <ion-input name="salario" [(ngModel)]="newFunc.salario" required></ion-input>
+      </ion-item>
+  
+      <ion-button type="submit">Adicionar Funcionario</ion-button>
+    </form>
+  </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
